@@ -94,7 +94,7 @@ jobs:
 
   deploy-gh-pages:
     name: Deploy to Github Pages
-    needs: [build, test-unit, test-e2e]
+    needs: [build, test-e2e]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
