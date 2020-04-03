@@ -42,22 +42,16 @@ jobs:
         run: npm run lint
       - name: Build application
         run: npm run build
+      - name: Run Unit Tests
+        run: npm run test:unit
+        env:
+          CI: true
       - name: Upload application
         uses: actions/upload-artifact@v1
         with:
           name: dist-folder
           path: dist
         if: always()
-
-  test-unit:
-    name: Unit Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Run Unit Tests
-        run: npm run test:unit
-        env:
-          CI: true
 
   test-e2e:
     # let's make sure our tests pass on Chrome browser
