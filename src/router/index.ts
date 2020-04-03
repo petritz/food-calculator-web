@@ -11,13 +11,13 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/products",
+    name: "Products",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import(/* webpackChunkName: "products" */ "../views/Products.vue")
   }
 ];
 
@@ -25,6 +25,17 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+router.afterEach((to, from) => {
+  Vue.nextTick(() => {
+    let name = "Food Calculator";
+    if (to.name != null) {
+      name = `${name} | ${to.name}`;
+    }
+
+    document.title = name;
+  });
 });
 
 export default router;
