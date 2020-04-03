@@ -56,6 +56,7 @@ jobs:
   test-e2e:
     # let's make sure our tests pass on Chrome browser
     name: E2E on Chrome
+    needs: build
     runs-on: ubuntu-16.04
     strategy:
       # when one test fails, DO NOT cancel the other
@@ -84,13 +85,13 @@ jobs:
         if: failure()
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: tests/e2e/screenshots
       # Test run video was always captured, so this action uses "always()" condition
       - uses: actions/upload-artifact@v1
         if: always()
         with:
           name: cypress-videos
-          path: cypress/videos
+          path: tests/e2e/videos
 
   deploy-gh-pages:
     name: Deploy to Github Pages
