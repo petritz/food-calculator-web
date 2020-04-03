@@ -1,4 +1,6 @@
 # food-calculator-web
+![Vue.js CI](https://github.com/petritz/food-calculator-web/workflows/Vue.js%20CI/badge.svg)
+
 Web UI for [github.com/petritz/food-calculator](https://github.com/petritz/food-calculator)
 
 ## Project setup
