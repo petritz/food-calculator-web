@@ -1,4 +1,5 @@
 # food-calculator-web
+Web UI for [github.com/petritz/food-calculator](https://github.com/petritz/food-calculator)
 
 ## Project setup
 ```
@@ -29,6 +30,3 @@ npm run test:e2e
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
