@@ -29,12 +29,96 @@
             <td>{{ selectedProduct.name }}</td>
           </tr>
           <tr>
-            <th>Shop</th>
+            <th>Number</th>
+            <td>
+              <a
+                target="_blank"
+                :href="
+                  'https://www.billa.at/produkte/' + selectedProduct.item_number
+                "
+                >{{ selectedProduct.item_number }}</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th>Fetched from Shop</th>
             <td>{{ selectedProduct.shop }}</td>
           </tr>
           <tr>
             <th>Price per 100g</th>
-            <td>{{ selectedProduct.price | toCurrency }}</td>
+            <td>{{ selectedProduct.price | currency }}</td>
+          </tr>
+          <tr>
+            <th>Calories per 100g</th>
+            <td>{{ selectedProduct.calories }} kcal</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="center">Nutrition</th>
+          </tr>
+          <tr>
+            <th>Fat</th>
+            <td>{{ (selectedProduct.nutrition_fat / 100) | percent }}</td>
+          </tr>
+          <tr>
+            <th><span class="spacer"></span> of which saturated fatty acids</th>
+            <td>
+              {{
+                (selectedProduct.nutrition_saturated_fatty_acids / 100)
+                  | percent
+              }}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <span class="spacer"></span> of which mono unsaturated fatty acids
+            </th>
+            <td>
+              {{
+                (selectedProduct.nutrition_mono_unsaturated_fatty_acids / 100)
+                  | percent
+              }}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <span class="spacer"></span> of which poly unsaturated fatty acids
+            </th>
+            <td>
+              {{
+                (selectedProduct.nutrition_poly_unsaturated_fatty_acids / 100)
+                  | percent
+              }}
+            </td>
+          </tr>
+          <tr>
+            <th>Carbohydrates</th>
+            <td>
+              {{ (selectedProduct.nutrition_carbohydrates / 100) | percent }}
+            </td>
+          </tr>
+          <tr>
+            <th><span class="spacer"></span> of which sugar</th>
+            <td>{{ (selectedProduct.nutrition_sugar / 100) | percent }}</td>
+          </tr>
+          <tr>
+            <th>Protein</th>
+            <td>{{ (selectedProduct.nutrition_protein / 100) | percent }}</td>
+          </tr>
+          <tr>
+            <th>Salt</th>
+            <td>{{ (selectedProduct.nutrition_salt / 100) | percent }}</td>
+          </tr>
+          <tr>
+            <th>Fiber</th>
+            <td>{{ (selectedProduct.nutrition_fiber / 100) | percent }}</td>
+          </tr>
+          <tr>
+            <th>Calcium</th>
+            <td>{{ (selectedProduct.nutrition_calcium / 100) | percent }}</td>
+          </tr>
+          <tr>
+            <th>Natrium</th>
+            <td>{{ (selectedProduct.nutrition_natrium / 100) | percent }}</td>
           </tr>
         </tbody>
       </table>
@@ -67,11 +151,23 @@ export default {
   table {
     margin-left: auto;
     margin-right: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
 
     td,
     th {
       border: solid #e2e2e2 1px;
       padding: 0.5em;
+      text-align: left;
+
+      &.center {
+        text-align: center;
+        font-size: 1.1em;
+      }
+
+      span.spacer {
+        padding-right: 1em;
+      }
     }
   }
 }

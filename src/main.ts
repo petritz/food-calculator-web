@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import Vue2Filters from "vue2-filters";
 
 Vue.config.productionTip = false;
 
@@ -11,17 +12,16 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
-// Vue Filters (globally)
-
-Vue.filter("toCurrency", function(value: number) {
-  if (!value) {
-    return "";
+// Vue libraries
+const Vue2FiltersConfig = {
+  currency: {
+    symbol: "€",
+    decimalDigits: 4,
+    spaceBetweenAmountAndSymbol: true
+  },
+  percent: {
+    decimalDigits: 2
   }
-  const formatter = new Intl.NumberFormat("de-AT", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: 4
-  });
+};
 
-  return formatter.format(value);
-});
+Vue.use(Vue2Filters, Vue2FiltersConfig);
