@@ -23,6 +23,7 @@ export default new Vuex.Store({
     loadProducts({ commit }) {
       axios
         .get(BASE_URL + "/products/")
+        // TODO: Add model for typescript to work properly
         .then(r => r.data)
         .then(data => {
           commit("SET_PRODUCTS", data);
