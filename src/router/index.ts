@@ -22,7 +22,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash", // use history for better urls
   base: process.env.BASE_URL,
   routes
 });
