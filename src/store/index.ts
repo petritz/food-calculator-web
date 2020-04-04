@@ -8,11 +8,15 @@ const BASE_URL = process.env.VUE_APP_BASEURL;
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    loading: true
   },
   mutations: {
     SET_PRODUCTS(state, data) {
       state.products = data;
+    },
+    UPDATE_LOADING_STATE(state, flag) {
+      state.loading = flag;
     }
   },
   actions: {
@@ -22,6 +26,7 @@ export default new Vuex.Store({
         .then(r => r.data)
         .then(data => {
           commit("SET_PRODUCTS", data);
+          commit("UPDATE_LOADING_STATE", false);
         });
     }
   },
