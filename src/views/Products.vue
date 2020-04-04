@@ -8,17 +8,14 @@
 
     <div v-if="products" class="product-selection-box">
       <label for="product-selection">
-        Choose
+        Choose Product
       </label>
-      <select id="product-selection" v-model="selectedProduct">
-        <option
-          v-for="product in products"
-          :key="product.id"
-          v-bind:value="product"
-        >
-          {{ product.name }}
-        </option>
-      </select>
+      <v-select
+        id="product-selection"
+        v-model="selectedProduct"
+        :options="products"
+        label="name"
+      />
     </div>
 
     <div v-if="selectedProduct" class="product-detail">
@@ -145,6 +142,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.product-selection-box {
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .product-detail {
   margin-top: 2em;
 
