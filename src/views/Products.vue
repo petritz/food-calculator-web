@@ -15,15 +15,16 @@
         v-model="selectedProduct"
         :options="products"
         label="name"
+        data-cy="select-product"
       />
     </div>
 
     <div v-if="selectedProduct" class="product-detail">
-      <table>
+      <table data-cy="product-detail-table">
         <tbody>
           <tr>
             <th>Name</th>
-            <td>{{ selectedProduct.name }}</td>
+            <td data-cy="product-detail-name">{{ selectedProduct.name }}</td>
           </tr>
           <tr>
             <th>Number</th>
